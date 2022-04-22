@@ -16,14 +16,20 @@ def get_ticket_num():
     """
     Get ticket numbers in figure input from the user
     """
-    print("Please enter the ticket numbers from the last event.")
-    print("Data should be three numbers, separated by commas.")
-    print("Example: 60,80,30\n")
+    while True:
+        print("Please enter the ticket numbers from the last event.")
+        print("Data should be three numbers, separated by commas.")
+        print("Example: 60,80,30\n")
 
-    num_str = input("Enter your numbers here: ")
+        num_str = input("Enter your numbers here: ")
 
-    ticket_num = num_str.split(",")
-    validate_num(ticket_num)
+        ticket_num = num_str.split(",")
+
+        if validate_num(ticket_num):
+            print('Valid Numbers')
+            break
+
+    return ticket_num
 
 
 def validate_num(values):
@@ -40,6 +46,10 @@ def validate_num(values):
             )
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
+        return False
+
+    return True
+num = get_ticket_num()
 
 
 get_ticket_num()
