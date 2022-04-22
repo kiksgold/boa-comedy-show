@@ -49,10 +49,22 @@ def validate_num(values):
         return False
 
     return True
+
+
+def update_ticket_worksheet(num):
+    """
+    Update ticket worksheet, add new row with the numbers provided"
+    '"""
+    print('Updating ticket worksheet...\n')
+    ticket_worksheet = SHEET.worksheet(('ticket'))
+    ticket_worksheet.append_row(num)
+    print('Ticket worksheet updated successfully.\n')
+
+
 num = get_ticket_num()
+ticket_num = [int(fig) for fig in num]
+update_ticket_worksheet(ticket_num)
 
-
-get_ticket_num()
 
 
 
