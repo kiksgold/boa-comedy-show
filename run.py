@@ -33,6 +33,7 @@ def validate_num(values):
     or if there aren't exactly 3 values.
     """
     try:
+        [int(value) for value in values]
         if len(values) != 3:
             raise ValueError(
                 f"Exactly 3 values required, you provided {len(values)}"
