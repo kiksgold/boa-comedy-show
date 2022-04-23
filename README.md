@@ -86,3 +86,28 @@ Print Recommendations
 </ul>
 
 
+## Data Model
+<p> We imported a spreadsheet from google sheet, where we have our survey data </p>
+<p>Our spreadsheet has 3 columns for the different categories of ticket-sales</p>
+<p>It contains 10 rows of numbers from past events</p>
+<p>It has 3 worksheets for ticket-sales, unsold tickets and future-tickets </p>
+
+## Testing
+I have manually tested this project by doing the following:
+<ul>
+<li>
+</li>
+<li>
+</li>
+</ul>
+
+## Bugs
+
+
+## Validator Testing
+
+
+## Deployment
+
+
+## Credits
