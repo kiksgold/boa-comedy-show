@@ -12,30 +12,30 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('boa-comedy-show')
 
-def get_ticket_num():
+def get_ticket_data():
     """
-    Get ticket numbers in figure input from the user
+    Get ticket data input in figure from the user
     """
     while True:
-        print("Please enter the ticket numbers from the last event.")
+        print("Please enter the ticket data from the last event.")
         print("Data should be three numbers, separated by commas.")
         print("Example: 60,80,30\n")
 
-        num_str = input("Enter your numbers here: ")
+        data_str = input("Please enter your ticket_data here: ")
 
-        ticket_num = num_str.split(",")
+        ticket_data = data_str.split(",")
 
-        if validate_num(ticket_num):
-            print('Valid Numbers')
+        if validate_data(ticket_data):
+            print('Valid Data')
             break
 
-    return ticket_num
+    return ticket_data
 
 
-def validate_num(values):
+def validate_data(values):
     """
     Inside the try, converts all string values into integers.
-    Raises ValueError if strings cannot be converted into int,
+    Raises ValueError if strings cannot be converted into integer,
     or if there aren't exactly 3 values.
     """
     try:
@@ -51,19 +51,27 @@ def validate_num(values):
     return True
 
 
-def update_ticket_worksheet(num):
+def update_ticket_worksheet(data):
     """
-    Update ticket worksheet, add new row with the numbers provided"
+    Update ticket worksheet, add new row with the data provided"
     '"""
     print('Updating ticket worksheet...\n')
     ticket_worksheet = SHEET.worksheet(('ticket'))
-    ticket_worksheet.append_row(num)
+    ticket_worksheet.append_row(data)
     print('Ticket worksheet updated successfully.\n')
 
 
-num = get_ticket_num()
-ticket_num = [int(fig) for fig in num]
-update_ticket_worksheet(ticket_num)
+def master():
+    """
+    Run all our functions here
+    """
+    data = get_ticket_data()
+    ticket_data = [int(fig) for fig in data]
+    update_ticket_worksheet(ticket_data)
+
+
+print('Welcome to BOA Comedy Show Automation')
+master()
 
 
 
