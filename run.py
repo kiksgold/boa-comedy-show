@@ -86,6 +86,21 @@ def update_unsold_worksheet(data):
     unsold_worksheet.append_row(data)
     print("Unsold worksheet updated successfully.\n")
 
+def get_last_3_entries_ticket():
+    """
+    Collects columns of data from ticket worksheet, collecting
+    the last 3 entries for each event and returns the data
+    as a list of lists.
+    """
+    ticket = SHEET.worksheet("ticket")
+
+    columns = []
+    for ind in range(1, 4):
+        column = ticket.col_values(ind)
+        columns.append(column[-3:])
+
+    return columns
+
 
 
 
@@ -102,8 +117,9 @@ def master():
 
 
 print('Welcome to BOA Comedy Show Automation')
-master()
+# master()
 
+ticket_colums = get_last_3_entries_ticket()
 
 
 
