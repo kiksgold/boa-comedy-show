@@ -69,7 +69,12 @@ def calculate_unsold_data(ticket_row):
     print('Calculating unsold tickets...\n')
     inventory = SHEET.worksheet('inventory').get_all_values()
     inventory_row = inventory[-1]
-    print(inventory_row)
+    
+    unsold_data = []
+    for inventory, ticket in zip(inventory_row, ticket_row):
+        unsold = int(inventory) - ticket
+        unsold_data.append(unsold)
+    print(unsold_data)
 
 
 
