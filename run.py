@@ -74,7 +74,18 @@ def calculate_unsold_data(ticket_row):
     for inventory, ticket in zip(inventory_row, ticket_row):
         unsold = int(inventory) - ticket
         unsold_data.append(unsold)
-    print(unsold_data)
+
+    return unsold_data
+
+def update_unsold_worksheet(data):
+    """
+    Update unsold worksheet and add new row with the data provided
+    """
+    print("Updating unsold worksheet...\n")
+    unsold_worksheet = SHEET.worksheet("unsold")
+    unsold_worksheet.append_row(data)
+    print("Unsold worksheet updated successfully.\n")
+
 
 
 
@@ -86,7 +97,8 @@ def master():
     data = get_ticket_data()
     ticket_data = [int(fig) for fig in data]
     update_ticket_worksheet(ticket_data)
-    calculate_unsold_data(ticket_data)
+    new_unsold_data = calculate_unsold_data(ticket_data)
+    update_unsold_worksheet(new_unsold_data)
 
 
 print('Welcome to BOA Comedy Show Automation')
