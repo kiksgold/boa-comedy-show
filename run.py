@@ -93,6 +93,7 @@ def get_last_3_entries_ticket():
     as a list of lists.
     """
     ticket = SHEET.worksheet("ticket")
+   
 
     columns = []
     for ind in range(1, 4):
@@ -100,6 +101,59 @@ def get_last_3_entries_ticket():
         columns.append(column[-3:])
 
     return columns
+
+
+def calculate_inventory_data(data):
+    """
+    Calculate the average inventory for each item type, adding 20%
+    """
+
+    print('Calculating inventory data...\n')
+    new_inventory_data = []
+
+    for column in data:
+        int_column = [int(num) for num in column]
+        average = sum(int_column) / len(int_column)
+        inventory_num = average * 1.2
+        new_inventory_data.append(round(inventory_num))
+
+    return new_inventory_data
+
+
+def update_inventory_worksheet(data):
+    """
+    Update inventory worksheet and add new row with the data provided
+    """
+    print("Updating inventory worksheet...\n")
+    inventory_worksheet = SHEET.worksheet("inventory")
+    inventory_worksheet.append_row(data)
+    print("Inventory worksheet updated successfully.\n")
+
+
+
+
+    
+
+
+
+    
+    
+    
+# def calculate_inventory_data(data):
+#     """
+#     Calculate the average inventory for each item type, adding 20%
+#     """
+#     print("Calculating inventory data...\n")
+#     new_inventory_data = []
+
+#     for column in data:
+#         int_column = [int(num) for num in column]
+#         average = sum(int_column) / len(int_column)
+#         inventory_num = average * 1.2
+#         new_inventory_data.append(round(inventory_num))
+
+#     return new_inventory_data
+
 
 
 
@@ -114,12 +168,17 @@ def master():
     update_ticket_worksheet(ticket_data)
     new_unsold_data = calculate_unsold_data(ticket_data)
     update_unsold_worksheet(new_unsold_data)
+    ticket_columns = get_last_3_entries_ticket()
+    inventory_data = calculate_inventory_data(ticket_columns)
+    update_inventory_worksheet(inventory_data)
+
+
+    
 
 
 print('Welcome to BOA Comedy Show Automation')
-# master()
+master()
 
-ticket_colums = get_last_3_entries_ticket()
 
 
 
