@@ -129,33 +129,15 @@ def update_inventory_worksheet(data):
     inventory_worksheet.append_row(data)
     print("Inventory worksheet updated successfully.\n")
 
+def get_inventory_values(data):
+    """
+    Print out calculates average numbers for each category of tickets
+    """
+    headings = SHEET.worksheet('inventory').get_all_values()[0]
 
+    print('Make the following numbers of tickets for each category for the next event:\n')
 
-
-    
-
-
-
-    
-    
-    
-# def calculate_inventory_data(data):
-#     """
-#     Calculate the average inventory for each item type, adding 20%
-#     """
-#     print("Calculating inventory data...\n")
-#     new_inventory_data = []
-
-#     for column in data:
-#         int_column = [int(num) for num in column]
-#         average = sum(int_column) / len(int_column)
-#         inventory_num = average * 1.2
-#         new_inventory_data.append(round(inventory_num))
-
-#     return new_inventory_data
-
-
-
+    return {heading: data for heading, data in zip(headings, data)}
 
 
 
@@ -171,6 +153,8 @@ def master():
     ticket_columns = get_last_3_entries_ticket()
     inventory_data = calculate_inventory_data(ticket_columns)
     update_inventory_worksheet(inventory_data)
+    inventory_values = get_inventory_values(inventory_data)
+    print(inventory_values)
 
 
     
