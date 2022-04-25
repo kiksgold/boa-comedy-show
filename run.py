@@ -64,7 +64,7 @@ def update_ticket_worksheet(data):
 
 def calculate_unsold_data(ticket_row):
     """
-    We will compare the ticket sales with the inventory in order to calculate the unsold(if any) of the categories
+    We will compare the ticket sales with the inventory in order to calculate unsold(if any) of the categories
     """
     print('Calculating unsold tickets...\n')
     inventory = SHEET.worksheet('inventory').get_all_values()
@@ -105,7 +105,7 @@ def get_last_3_entries_ticket():
 
 def calculate_inventory_data(data):
     """
-    Calculate the average inventory for each item type, adding 20%
+    Calculate the average inventory for each category, adding 20%
     """
 
     print('Calculating inventory data...\n')
@@ -155,6 +155,7 @@ def master():
     update_inventory_worksheet(inventory_data)
     inventory_values = get_inventory_values(inventory_data)
     print(inventory_values)
+    
 
 
     

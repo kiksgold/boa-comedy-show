@@ -53,6 +53,8 @@ Print Recommendations
         </li>
         <li>create while loop to repeat request for numbers until valid
         </li>
+        <li>update our ticket worksheet
+        </li>
         </ul>
 
 ![ImageHere]()
@@ -60,24 +62,26 @@ Print Recommendations
    <li>Calculate the unsold-tickets
     </li>
         <ul>
-        <li>
+        <li>compare tickets sold with the inventory inorder to calculate the unsold (if any) for each category
         </li>
-        <li>
+        <li>calculate the unsold tickets
         </li>
-        <li>
+        <li>updates the unsold worksheet in our spreadsheet
         </li>
         </ul>
 
 ![ImageHere]()
 
-<li>Calculate future-tickets based on averages from the last 3 events
+<li>Calculate inventory based on averages from the last 3 events
 </li>
     <ul>
-    <li>
+    <li>calculate the average inventory
     </li>
-    <li>
+    <li>the user adds a 20% margin to the calculated averages for future events
     </li>
-    <li>
+    <li>updates our inventory worksheet
+    </li>
+    <li>make recommendations
     </li>
     </ul>
 
