@@ -1,7 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
 
-
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -12,6 +11,7 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('boa-comedy-show')
+
 
 def get_ticket_data():
     """
@@ -64,18 +64,19 @@ def update_ticket_worksheet(data):
 
 def calculate_unsold_data(ticket_row):
     """
-    We will compare the ticket sales with the inventory in order to calculate unsold(if any) of the categories
+    We will compare the ticket sales with the inventory in order
+    to calculate unsold (if any) of the categories.
     """
     print('Calculating unsold tickets...\n')
     inventory = SHEET.worksheet('inventory').get_all_values()
     inventory_row = inventory[-1]
-    
     unsold_data = []
     for inventory, ticket in zip(inventory_row, ticket_row):
         unsold = int(inventory) - ticket
         unsold_data.append(unsold)
 
     return unsold_data
+
 
 def update_unsold_worksheet(data):
     """
@@ -86,6 +87,7 @@ def update_unsold_worksheet(data):
     unsold_worksheet.append_row(data)
     print("Unsold worksheet updated successfully.\n")
 
+
 def get_last_3_entries_ticket():
     """
     Collects columns of data from ticket worksheet, collecting
@@ -93,8 +95,6 @@ def get_last_3_entries_ticket():
     as a list of lists.
     """
     ticket = SHEET.worksheet("ticket")
-   
-
     columns = []
     for ind in range(1, 4):
         column = ticket.col_values(ind)
@@ -107,7 +107,6 @@ def calculate_inventory_data(data):
     """
     Calculate the average inventory for each category, adding 20%
     """
-
     print('Calculating inventory data...\n')
     new_inventory_data = []
 
@@ -129,16 +128,16 @@ def update_inventory_worksheet(data):
     inventory_worksheet.append_row(data)
     print("Inventory worksheet updated successfully.\n")
 
+
 def get_inventory_values(data):
     """
     Print out calculates average numbers for each category of tickets
     """
     headings = SHEET.worksheet('inventory').get_all_values()[0]
 
-    print('Make the following numbers of tickets for each category for the next event:\n')
+    print('Make these nos of tickets for each category for the next event:\n')
 
     return {heading: data for heading, data in zip(headings, data)}
-
 
 
 def master():
@@ -155,19 +154,7 @@ def master():
     update_inventory_worksheet(inventory_data)
     inventory_values = get_inventory_values(inventory_data)
     print(inventory_values)
-    
-
-
-    
 
 
 print('Welcome to BOA Comedy Show Automation')
 master()
-
-
-
-
-
-
-
-

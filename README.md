@@ -10,7 +10,7 @@ The show is an annual comedy show that sells different categories of tickets for
 ## Our main goal
 Our goal is to save the company some time by automating a repetitive task and help reduce the unsold tickets by better predicting ticket sales for future events.
 
-### Here is the live version of my project.
+https://boa-comedy-show.herokuapp.com/
 
 ![ImageHere](./docs/features/am_iresponsive.png)
 
@@ -99,19 +99,53 @@ Print Recommendations
 ## Testing
 I have manually tested this project by doing the following:
 <ul>
-<li>
+<li>I passed the codes through a PEP8 and confirmed there are no errors
 </li>
-<li>
+<li>It gives valid input, strings and float numbers are not allowed.
+</li>
+<li>Tested in my local terminal and the Code Institute Heroku terminal
 </li>
 </ul>
 
 ## Bugs
+<p>At the point of deplomyent to Heroku, I could not connet to git connect, i was getting 'internal servive error'. However i was able to deploy through git CLI</p>
 
 
 ## Validator Testing
+<ul>
+<li>PEP8
+    <ul>
+    <li>No errors were returned from pep8online.com
+    </li>
+    </ul>
+</li>
+</ul>
 
 
 ## Deployment
+<ul>
+<li> Steps for Deployment
+</li>
+    <ul>
+    <li>Create a new app
+    </li>
+    <li>Set my config vars to store my sensitive data
+    </li>
+    <li>Set the buildbacks to Python and NodeJS in that order
+    </li>
+    <li>Click on deploy
+    </li>
+    </ul>
+</ul>
+
 
 
 ## Credits
+<ul>
+<li>Love sandwiches walkthrough project
+</li>
+<li>Sample Readme from Ultimate Battleship
+</li>
+<li>Tutor support
+</li>
+</ul>
