@@ -10,9 +10,9 @@ The show is an annual comedy show that sells different categories of tickets for
 ## Our main goal
 Our goal is to save the company some time by automating a repetitive task and help reduce the unsold tickets by better predicting ticket sales for future events.
 
-## Here is the live version of my project.
+### Here is the live version of my project.
 
-![ImageHere]()
+![ImageHere](./docs/features/am_iresponsive.png)
 
 ## How it works
 <ul>
@@ -57,7 +57,7 @@ Print Recommendations
         </li>
         </ul>
 
-![ImageHere]()
+![ImageHere](./docs/features/request_ticket.png)
 
    <li>Calculate the unsold-tickets
     </li>
@@ -70,7 +70,7 @@ Print Recommendations
         </li>
         </ul>
 
-![ImageHere]()
+![ImageHere](./docs/features/unsold_ticket.png)
 
 <li>Calculate inventory based on averages from the last 3 events
 </li>
@@ -85,7 +85,7 @@ Print Recommendations
     </li>
     </ul>
 
-![ImageHere]()    
+![ImageHere](./docs/features/inventory_ticket.png)
     
 </ul>
 
