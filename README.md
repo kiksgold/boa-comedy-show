@@ -96,6 +96,10 @@ Print Recommendations
 <p>It contains 10 rows of numbers from past events</p>
 <p>It has 3 worksheets for ticket-sales, unsold tickets and future-tickets </p>
 
+![ImageHere](./docs/features/ticket.png)
+![ImageHere](./docs/features/unsold.png)
+![ImageHere](./docs/features/inventory.png)
+
 ## Testing
 I have manually tested this project by doing the following:
 <ul>
@@ -108,8 +112,18 @@ I have manually tested this project by doing the following:
 </ul>
 
 ## Bugs
-<p>At the point of deplomyent to Heroku, I could not connet to git connect, i was getting 'internal servive error'. However i was able to deploy through git CLI</p>
-
+<ul>
+    <li> I got an error 'No module named gspread'
+        <ul>
+        <li>I debugged abd discovered my creds.json file was missing
+        </li>
+        <li>I the reinstalled 'pip3 install gspread google-auth'
+        </li>
+        </ul>
+    </li>
+    <li>At the point of deplomyent to Heroku, I could not connet to git connect, i was getting 'internal servive error'. However i was able to deploy through git CLI
+    </li>
+</ul>
 
 ## Validator Testing
 <ul>
@@ -121,6 +135,19 @@ I have manually tested this project by doing the following:
 </li>
 </ul>
 
+![ImageHere](./docs/features/peponline_result.png)
+
+## Technology Used
+<ul>
+    <li>Gspread
+    </li>
+    <li>Github
+    </li>
+    <li>run.py
+    </li>
+    <li>Heroku
+    </li>
+</ul>
 
 ## Deployment
 <ul>

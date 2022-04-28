@@ -55,6 +55,8 @@ def validate_data(values):
 def update_ticket_worksheet(data):
     """
     Update ticket worksheet, add new row with the data provided"
+    Parameters:
+    data: a list of the ticket data
     '"""
     print('Updating ticket worksheet...\n')
     ticket_worksheet = SHEET.worksheet(('ticket'))
@@ -148,9 +150,11 @@ def master():
     ticket_data = [int(fig) for fig in data]
     update_ticket_worksheet(ticket_data)
     new_unsold_data = calculate_unsold_data(ticket_data)
+    print(new_unsold_data)
     update_unsold_worksheet(new_unsold_data)
     ticket_columns = get_last_3_entries_ticket()
     inventory_data = calculate_inventory_data(ticket_columns)
+    print(inventory_data)
     update_inventory_worksheet(inventory_data)
     inventory_values = get_inventory_values(inventory_data)
     print(inventory_values)
